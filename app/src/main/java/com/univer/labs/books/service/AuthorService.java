@@ -16,12 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorService extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "books.db";
-    public static final String TABLE_NAME = "authors_table";
-    public static final String COL_1 = "author_id";
-    public static final String COL_2 = "author_name";
-    public static final String COL_3 = "author_surname";
-    public static final String COL_4 = "author_secondname";
+    private static final String DATABASE_NAME = "books.db";
+    private static final String TABLE_NAME = "authors_table";
+    private static final String COL_1 = "author_id";
+    private static final String COL_2 = "author_name";
+    private static final String COL_3 = "author_surname";
+    private static final String COL_4 = "author_secondname";
 
     public AuthorService(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -47,9 +47,7 @@ public class AuthorService extends SQLiteOpenHelper {
         contentValues.put(COL_3, surname);
         contentValues.put(COL_4, secondName);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if (result == -1)
-            return false;
-        return true;
+        return result != -1;
     }
 
     public boolean updateBook(Author author) {
@@ -58,14 +56,12 @@ public class AuthorService extends SQLiteOpenHelper {
         contentValues.put(COL_2, author.getName());
         contentValues.put(COL_3, author.getSurname());
         contentValues.put(COL_4, author.getSecondName());
-        long result = db.update(TABLE_NAME, contentValues, "id = ?", new String[]{String.valueOf(author.getAuthorId())});
-        if (result == -1)
-            return false;
-        return true;
+        long result = db.update(TABLE_NAME, contentValues, "author_id = ?", new String[]{String.valueOf(author.getAuthorId())});
+        return result != -1;
     }
 
     private List<Serializable> getAllAuthors() {
-        List<Serializable> itemsList = new ArrayList<Serializable>();
+        List<Serializable> itemsList = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from " + TABLE_NAME, null);
@@ -83,12 +79,13 @@ public class AuthorService extends SQLiteOpenHelper {
             book.setAuthorId(cursor.getInt(5));
             itemsList.add(book);
         }
+        cursor.close();
         return itemsList;
     }
 
     public boolean deleteAuthor(Author author) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, "id = ?", new String[]{String.valueOf(author.getAuthorId())}) > 0;
+        return db.delete(TABLE_NAME, "author_id = ?", new String[]{String.valueOf(author.getAuthorId())}) > 0;
     }
 
     //custom querries
@@ -96,7 +93,7 @@ public class AuthorService extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM authors_table " +
                 "WHERE author_id NOT IN(SELECT DISTINCT author_id FROM books_table)", null);
-        List<Serializable> itemsList = new ArrayList<Serializable>();
+        List<Serializable> itemsList = new ArrayList<>();
         if (cursor.getCount() == 0)
             return itemsList;
         while (cursor.moveToNext())
@@ -108,6 +105,7 @@ public class AuthorService extends SQLiteOpenHelper {
             author.setSecondName(cursor.getString(3));
             itemsList.add(author);
         }
+        cursor.close();
         return itemsList;
     }
 
