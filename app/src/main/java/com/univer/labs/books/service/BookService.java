@@ -30,8 +30,8 @@ public class BookService extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (book_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "book_name varchar(20), date_published varchar(20),pages_count INTEGER,price DOUBLE,author_id integer)");
+        db.execSQL("create table " + TABLE_NAME + " ("+COL_1+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_2+" varchar(20), "+COL_3+" varchar(20),"+COL_4+" INTEGER,"+COL_5+" DOUBLE,"+COL_6+" integer default 0)");
     }
 
     @Override
