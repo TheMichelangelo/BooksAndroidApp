@@ -1,5 +1,8 @@
 package com.univer.labs.books.service;
 
+//create table book (book_id INTEGER PRIMARY KEY AUTOINCREMENT, book_name varchar(20), date_published varchar(20),pages_count INTEGER,price DOUBLE,author_id integer DEFAULT 0)
+//create table authors(author_id INTEGER PRIMARY KEY AUTOINCREMENT, author_name varchar(20), author_surname varchar(20), author_secondname varchar(20))
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -16,7 +19,7 @@ import java.util.List;
 
 public class BookService extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "books.db";
-    private static final String TABLE_NAME = "books_table";
+    private static final String TABLE_NAME = "book";
     private static final String COL_1 = "book_id";
     private static final String COL_2 = "book_name";
     private static final String COL_3 = "date_published";
@@ -119,9 +122,9 @@ public class BookService extends SQLiteOpenHelper {
 
     public List<Serializable> getAllDuplications() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM books_table " +
-                "WHERE book_name IN (SELECT book_name FROM books_table GROUP BY book_name HAVING COUNT(*) > 1) " +
-                "AND author_id IN (SELECT author_id FROM books_table GROUP BY author_id HAVING COUNT(*) > 1) " +
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME+
+                " WHERE book_name IN (SELECT book_name FROM "+TABLE_NAME+" GROUP BY book_name HAVING COUNT(*) > 1) " +
+                "AND author_id IN (SELECT author_id FROM "+TABLE_NAME+" GROUP BY author_id HAVING COUNT(*) > 1) " +
                 "ORDER BY book_name", null);
         List<Serializable> itemsList = new ArrayList<>();
         if (cursor.getCount() == 0)

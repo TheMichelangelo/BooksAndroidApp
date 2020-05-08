@@ -17,7 +17,7 @@ import java.util.List;
 
 public class AuthorService extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "books.db";
-    private static final String TABLE_NAME = "authors_table";
+    private static final String TABLE_NAME = "authors";
     private static final String COL_1 = "author_id";
     private static final String COL_2 = "author_name";
     private static final String COL_3 = "author_surname";
