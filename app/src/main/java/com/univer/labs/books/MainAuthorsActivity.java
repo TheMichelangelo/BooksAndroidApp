@@ -19,4 +19,9 @@ public class MainAuthorsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickShowAuthorsActivity(View v){
+        Intent intent = new Intent(this, AllAuthorsActivity.class);
+        startActivity(intent);
+    }
+
 }

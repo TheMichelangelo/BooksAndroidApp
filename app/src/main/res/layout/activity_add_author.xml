@@ -25,13 +25,15 @@
             android:textColor="#FFFFFF" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/authorName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:autofillHints="@string/author_name"
+            android:ems="10"
+            android:hint="@string/author_name"
             android:inputType="textPersonName"
             android:text="@string/empty_string"
+            android:textColor="#FFFFFF"
             android:textColorHighlight="#FFFFFF" />
 
         <TextView
@@ -42,11 +44,12 @@
             android:textColor="#FFFFFF" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/authorSecondName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:autofillHints="@string/author_secondName"
+            android:ems="10"
+            android:hint="@string/author_secondName"
             android:inputType="textPersonName"
             android:text="@string/empty_string"
             android:textColor="#FFFFFF" />
@@ -59,18 +62,20 @@
             android:textColor="#FFFFFF" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/authorSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
             android:autofillHints="@string/author_surname"
+            android:ems="10"
+            android:hint="@string/author_surname"
+            android:inputType="textPersonName"
             android:textColor="#FFFFFF" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/addAuthorButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onAddClick"
             android:text="@string/add" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.univer.labs.books.model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Author implements Serializable {
@@ -52,5 +54,11 @@ public class Author implements Serializable {
 
     public void setSecondName(String secondName) {
         this.secondName = secondName;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.name+" "+this.secondName+" "+this.surname;
     }
 }
