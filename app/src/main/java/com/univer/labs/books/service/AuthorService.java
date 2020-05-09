@@ -60,8 +60,8 @@ public class AuthorService extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    private List<Serializable> getAllAuthors() {
-        List<Serializable> itemsList = new ArrayList<>();
+    public List<Author> getAllAuthors() {
+        List<Author> itemsList = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from " + TABLE_NAME, null);
@@ -70,14 +70,12 @@ public class AuthorService extends SQLiteOpenHelper {
 
         while (cursor.moveToNext())
         {
-            Book book= new Book();
-            book.setBookId(cursor.getInt(0));
-            book.setName(cursor.getString(1));
-            book.setDatePublished(cursor.getString(2));
-            book.setPagesCount(cursor.getInt(3));
-            book.setPrice(cursor.getDouble(4));
-            book.setAuthorId(cursor.getInt(5));
-            itemsList.add(book);
+            Author author = new Author();
+            author.setAuthorId(cursor.getInt(0));
+            author.setName(cursor.getString(1));
+            author.setSurname(cursor.getString(2));
+            author.setSecondName(cursor.getString(3));
+            itemsList.add(author);
         }
         cursor.close();
         return itemsList;

@@ -6,23 +6,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.univer.labs.books.model.Author;
+import com.univer.labs.books.service.AuthorService;
+
+import java.io.Serializable;
+import java.util.List;
+
 public class AllAuthorsActivity extends AppCompatActivity {
-    private String[] s1,s2;
+    private AuthorService authorService;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_authors);
-        s1=getResources().getStringArray(R.array.languages);
-        s2=getResources().getStringArray(R.array.description);
-
-        recyclerView = (RecyclerView) findViewById(R.id.allAuthorsView);
-
-        // specify an adapter (see also next example)
-        mAdapter = new AuthorsListAdapter(this,s1,s2);
+        authorService = new AuthorService(this);
+        List<Author> list = authorService.getAllAuthors();
+        recyclerView = findViewById(R.id.allAuthorsView);
+        // specify an adapter
+        mAdapter = new AuthorsListAdapter(this,list);
         recyclerView.setAdapter(mAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

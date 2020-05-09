@@ -20,9 +20,9 @@ public class AddAuthorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_author);
         authorService = new AuthorService(this);
-        authorName = (EditText) findViewById(R.id.authorName);
-        authorSurname = (EditText) findViewById(R.id.authorSurname);
-        authorSecondName = (EditText) findViewById(R.id.authorSecondName);
+        authorName = findViewById(R.id.authorName);
+        authorSurname = findViewById(R.id.authorSurname);
+        authorSecondName = findViewById(R.id.authorSecondName);
     }
 
     public void onAddClick(View v)
@@ -31,17 +31,29 @@ public class AddAuthorActivity extends AppCompatActivity {
         String authorSurnameText =authorSurname.getText().toString();
         String authorSecondNameText =authorSecondName.getText().toString();
 
-        if(""==authorNameText || ""==authorSurnameText)
+        if(authorNameText.isEmpty() || authorSurnameText.isEmpty())
         {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
             builder1.setTitle("Something go wrong");
-            builder1.setMessage("Author name and Surname can't be empty.");
+            builder1.setMessage("Author name and Surname can't be empty!!!");
             builder1.setCancelable(true);
             AlertDialog alert11 = builder1.create();
             alert11.show();
             return;
         }
 
-        authorService.insertAuthor(authorNameText,authorSurnameText,authorSecondNameText);
+        boolean result=authorService.insertAuthor(authorNameText,authorSurnameText,authorSecondNameText);
+        if(result)
+        {
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setTitle("Successs");
+            builder1.setMessage("Author was added)");
+            builder1.setCancelable(true);
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+            authorName.setText("");
+            authorSurname.setText("");
+            authorSecondName.setText("");
+        }
     }
 }
