@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Books</string>
+    <string name="authors">Authors</string>
+    <string name="add_author">Add author</string>
+    <string name="get_all_authors">View all authors</string>
+    <string name="get_authors_without_books">Get authors without books</string>
 </resources>

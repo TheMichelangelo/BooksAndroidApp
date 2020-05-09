@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.univer.labs.books.model.Book;
 import com.univer.labs.books.service.AuthorService;
 import com.univer.labs.books.service.BookService;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnSuppliers, btnComputers, btnSupplierList;
+    Button buttonAuthors;
     BookService bookService;
     AuthorService authorService;
 
@@ -19,7 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         authorService = new AuthorService(this);
+        bookService = new BookService(this);
+    }
+
+    public void onClickOpenAllAuthorsActivity(View v){
+        Intent intent = new Intent(this,MainAuthorsActivity.class);
+        startActivity(intent);
     }
 
 }
