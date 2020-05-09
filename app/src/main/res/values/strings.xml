@@ -4,4 +4,9 @@
     <string name="add_author">Add author</string>
     <string name="get_all_authors">View all authors</string>
     <string name="get_authors_without_books">Get authors without books</string>
+    <string name="author_name">Name</string>
+    <string name="author_secondName">SecondName</string>
+    <string name="author_surname">Surname</string>
+    <string name="add">Add</string>
+    <string name="empty_string"></string>
 </resources>

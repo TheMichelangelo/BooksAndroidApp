@@ -14,4 +14,9 @@ public class MainAuthorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_authors);
     }
 
+    public void onClickAddAuthorActivity(View v){
+        Intent intent = new Intent(this, AddAuthorActivity.class);
+        startActivity(intent);
+    }
+
 }
