@@ -52,7 +52,7 @@ public class AuthorService extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean updateBook(Author author) {
+    public boolean updateAuthor(Author author) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, author.getName());

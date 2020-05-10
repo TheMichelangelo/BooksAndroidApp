@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -20,6 +21,7 @@ public class AllAuthorsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private List<Author> list;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class AllAuthorsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.allAuthorsView);
         // specify an adapter
         mAdapter = new AuthorsListAdapter(this, list);
+        context=this;
         recyclerView.setAdapter(mAdapter);
         new ItemTouchHelper(itouchHelperCallBack).attachToRecyclerView(recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -50,6 +53,16 @@ public class AllAuthorsActivity extends AppCompatActivity {
                 list.remove(viewHolder.getLayoutPosition());
                 mAdapter.notifyDataSetChanged();
 
+            }
+            else
+            {
+                Author authorToEdit = list.get(viewHolder.getLayoutPosition());
+                Intent intent = new Intent(context, EditAuthorActivity.class);
+                intent.putExtra("name",authorToEdit.getName());
+                intent.putExtra("surname",authorToEdit.getSurname());
+                intent.putExtra("secondName",authorToEdit.getSecondName());
+                intent.putExtra("id",authorToEdit.getAuthorId());
+                context.startActivity(intent);
             }
         }
     };
