@@ -24,9 +24,9 @@ public class AuthorWithoutBooksActivity extends AppCompatActivity {
 
         authorService = new AuthorService(this);
         List<Author> list = authorService.getAllAuthorsWithoutBooks();
-        recyclerView = findViewById(R.id.allAuthorsView);
+        recyclerView = findViewById(R.id.author_no_book_view);
         // specify an adapter
-        mAdapter = new AuthorsListAdapter(this,list);
+        mAdapter = new AuthorsListQuerryAdapter(this,list);
         recyclerView.setAdapter(mAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

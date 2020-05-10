@@ -9,6 +9,7 @@ import android.view.View;
 import com.univer.labs.books.R;
 import com.univer.labs.books.controller.author.AddAuthorActivity;
 import com.univer.labs.books.controller.author.AllAuthorsActivity;
+import com.univer.labs.books.controller.author.AuthorWithoutBooksActivity;
 
 public class MainAuthorsActivity extends AppCompatActivity {
 
@@ -25,6 +26,11 @@ public class MainAuthorsActivity extends AppCompatActivity {
 
     public void onClickShowAuthorsActivity(View v){
         Intent intent = new Intent(this, AllAuthorsActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickShowAuthorsWithoutBooksActivity(View v){
+        Intent intent = new Intent(this, AuthorWithoutBooksActivity.class);
         startActivity(intent);
     }
 

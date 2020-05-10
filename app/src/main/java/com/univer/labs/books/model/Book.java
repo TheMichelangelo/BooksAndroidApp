@@ -75,4 +75,15 @@ public class Book implements Serializable {
     public void setAuthorId(long authorId) {
         this.authorId = authorId;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                ", name='" + name + '\'' +
+                ", datePublished='" + datePublished + '\'' +
+                ", pagesCount=" + pagesCount +
+                ", price=" + price +
+                ", authorId=" + authorId +
+                '}';
+    }
 }

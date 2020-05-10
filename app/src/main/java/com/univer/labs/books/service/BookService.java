@@ -39,6 +39,7 @@ public class BookService extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        //onCreate(db);
     }
 
     public boolean insertBook(String name, String date_published, int pages_count, double price, long author_id) {

@@ -15,4 +15,10 @@
     <string name="add_book_button">Add book</string>
     <string name="find_books_inder_price">Find book under price</string>
     <string name="find_duplicates">Find duplicates</string>
+    <string name="book_name_label">Book name</string>
+    <string name="book_date_published_label">Date published</string>
+    <string name="book_price_label">Price</string>
+    <string name="book_author_label">Author</string>
+    <string name="book_pages_label">Pages count</string>
+    <string name="add_book_label">Add book</string>
 </resources>

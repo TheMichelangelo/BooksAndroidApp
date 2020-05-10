@@ -91,8 +91,8 @@ public class AuthorService extends SQLiteOpenHelper {
     //custom querries
     public List<Author> getAllAuthorsWithoutBooks() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM authors_table " +
-                "WHERE author_id NOT IN(SELECT DISTINCT author_id FROM books_table)", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME +
+                " WHERE author_id NOT IN(SELECT DISTINCT "+COL_1+" FROM "+BookService.TABLE_NAME+")", null);
         List<Author> itemsList = new ArrayList<>();
         if (cursor.getCount() == 0)
             return itemsList;

@@ -1,11 +1,10 @@
 package com.univer.labs.books.controller.author;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -16,36 +15,23 @@ import com.univer.labs.books.model.Author;
 
 import java.util.List;
 
-public class AuthorsListAdapter extends RecyclerView.Adapter<AuthorsListAdapter.AuthorListHolder> {
+public class AuthorsListQuerryAdapter extends RecyclerView.Adapter<AuthorsListAdapter.AuthorListHolder> {
     private List<Author> authorList;
     private Context context;
 
     @NonNull
     @Override
-    public AuthorListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AuthorsListAdapter.AuthorListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.row_autor_list, parent,false);
-        return new AuthorListHolder(view);
+        return new AuthorsListAdapter.AuthorListHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AuthorListHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull AuthorsListAdapter.AuthorListHolder holder, final int position) {
         holder.text1.setText(authorList.get(position).getSurname());
         holder.text2.setText(authorList.get(position).getName());
         holder.text3.setText(authorList.get(position).getSecondName());
-
-        holder.layout.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, AuthorDetailsActivity.class);
-                intent.putExtra("name",authorList.get(position).getName());
-                intent.putExtra("surname",authorList.get(position).getSurname());
-                intent.putExtra("secondName",authorList.get(position).getSecondName());
-                intent.putExtra("id",authorList.get(position).getAuthorId());
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -69,7 +55,7 @@ public class AuthorsListAdapter extends RecyclerView.Adapter<AuthorsListAdapter.
         }
     }
 
-    AuthorsListAdapter(Context contex, List<Author> list) {
+    AuthorsListQuerryAdapter(Context contex, List<Author> list) {
         authorList=list;
         this.context=contex;
     }

@@ -29,10 +29,42 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".controller.author.AllAuthorsActivity" />
         </activity>
-        <activity android:name=".controller.author.BooksByAuthorActivity" />
-        <activity android:name=".controller.author.AuthorWithoutBooksActivity" />
-        <activity android:name=".controller.book.AllBooksActivity" />
-        <activity android:name=".controller.book.AddBookActivity" />
+        <activity
+            android:name=".controller.author.BooksByAuthorActivity"
+            android:parentActivityName=".controller.MainAuthorsActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.MainAuthorsActivity" />
+        </activity>
+        <activity
+            android:name=".controller.author.AuthorWithoutBooksActivity"
+            android:parentActivityName=".controller.MainAuthorsActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.MainAuthorsActivity" />
+        </activity>
+        <activity
+            android:name=".controller.book.AllBooksActivity"
+            android:parentActivityName=".controller.MainBooksActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.MainBooksActivity" />
+        </activity>
+        <activity
+            android:name=".controller.book.AddBookActivity"
+            android:parentActivityName=".controller.MainBooksActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.MainBooksActivity" />
+        </activity>
         <activity
             android:name=".controller.MainBooksActivity"
             android:parentActivityName=".controller.MainActivity">

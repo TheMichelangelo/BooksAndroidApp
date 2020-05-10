@@ -59,6 +59,6 @@ public class Author implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return this.name+" "+this.secondName+" "+this.surname;
+        return this.surname+" "+this.name+" "+this.secondName;
     }
 }
