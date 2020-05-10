@@ -6,37 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".controller.MainActivity">
 
-    <Button
-        android:id="@+id/authors"
-        android:layout_width="325dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginTop="294dp"
-        android:onClick="onClickOpenAllAuthorsActivity"
-        android:text="@string/authors"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lab3 books app!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/mainBooks"
-        android:layout_width="324dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginTop="14dp"
-        android:text="@string/books"
+        android:layout_height="293dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/authors"
+            android:layout_width="325dp"
+            android:layout_height="46dp"
+            android:onClick="onClickOpenAllAuthorsActivity"
+            android:text="@string/authors" />
+
+        <Button
+            android:id="@+id/mainBooks"
+            android:layout_width="324dp"
+            android:layout_height="44dp"
+            android:onClick="onClickOpenAllBooksActivity"
+            android:text="@string/books" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

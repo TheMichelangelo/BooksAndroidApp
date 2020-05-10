@@ -16,7 +16,15 @@
         <activity android:name=".controller.author.AuthorWithoutBooksActivity" />
         <activity android:name=".controller.book.AllBooksActivity" />
         <activity android:name=".controller.book.AddBookActivity" />
-        <activity android:name=".controller.MainBooksActivity" />
+        <activity
+            android:name=".controller.MainBooksActivity"
+            android:parentActivityName=".controller.MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.MainActivity" />
+        </activity>
         <activity
             android:name=".controller.author.AllAuthorsActivity"
             android:parentActivityName=".controller.MainAuthorsActivity">

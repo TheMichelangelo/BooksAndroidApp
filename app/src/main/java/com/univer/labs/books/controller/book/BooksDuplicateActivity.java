@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.univer.labs.books.R;
+
 public class BooksDuplicateActivity extends AppCompatActivity {
 
     @Override

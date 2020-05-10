@@ -33,8 +33,8 @@ public class BookService extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " ("+COL_1+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COL_2+" varchar(20), "+COL_3+" varchar(20),"+COL_4+" INTEGER,"+COL_5+" DOUBLE,"+COL_6+" integer default 0)");
+        //db.execSQL("create table " + TABLE_NAME + " ("+COL_1+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        //        COL_2+" varchar(20), "+COL_3+" varchar(20),"+COL_4+" INTEGER,"+COL_5+" DOUBLE,"+COL_6+" integer default 0)");
     }
 
     @Override
@@ -65,8 +65,8 @@ public class BookService extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    private List<Serializable> getAllBooks() {
-        List<Serializable> itemsList = new ArrayList<>();
+    private List<Book> getAllBooks() {
+        List<Book> itemsList = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from " + TABLE_NAME, null);
@@ -99,10 +99,10 @@ public class BookService extends SQLiteOpenHelper {
                 " GROUP BY author_id having author_id!=0", null);
     }
 
-    public List<Serializable> getAllBooksUnderPrice(double price) {
+    public List<Book> getAllBooksUnderPrice(double price) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE price <= " + price, null);
-        List<Serializable> itemsList = new ArrayList<>();
+        List<Book> itemsList = new ArrayList<>();
         if (cursor.getCount() == 0)
             return itemsList;
         while (cursor.moveToNext())
@@ -120,13 +120,13 @@ public class BookService extends SQLiteOpenHelper {
         return itemsList;
     }
 
-    public List<Serializable> getAllDuplications() {
+    public List<Book> getAllDuplications() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME+
                 " WHERE book_name IN (SELECT book_name FROM "+TABLE_NAME+" GROUP BY book_name HAVING COUNT(*) > 1) " +
                 "AND author_id IN (SELECT author_id FROM "+TABLE_NAME+" GROUP BY author_id HAVING COUNT(*) > 1) " +
                 "ORDER BY book_name", null);
-        List<Serializable> itemsList = new ArrayList<>();
+        List<Book> itemsList = new ArrayList<>();
         if (cursor.getCount() == 0)
             return itemsList;
         while (cursor.moveToNext())

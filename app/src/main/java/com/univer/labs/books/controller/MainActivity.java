@@ -30,4 +30,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickOpenAllBooksActivity(View v){
+        Intent intent = new Intent(this, MainBooksActivity.class);
+        startActivity(intent);
+    }
+
 }
