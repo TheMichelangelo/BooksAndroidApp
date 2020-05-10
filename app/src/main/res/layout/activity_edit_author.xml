@@ -4,6 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wp"
     tools:context=".controller.author.EditAuthorActivity">
 
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/author_name"
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edit_author_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/author_name"
+            android:ems="10"
+            android:hint="@string/author_name"
+            android:inputType="textPersonName"
+            android:text="@string/empty_string"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/author_secondName"
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edit_author_secondname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/author_secondName"
+            android:ems="10"
+            android:hint="@string/author_secondName"
+            android:inputType="textPersonName"
+            android:text="@string/empty_string"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/author_surname"
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edit_author_surname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/author_surname"
+            android:ems="10"
+            android:hint="@string/author_surname"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/updateAuthorButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="updateAuthor"
+            android:text="@string/update" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

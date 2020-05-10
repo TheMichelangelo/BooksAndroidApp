@@ -1,12 +1,14 @@
 package com.univer.labs.books.controller.author;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.univer.labs.books.R;
@@ -27,10 +29,23 @@ public class AuthorsListAdapter extends RecyclerView.Adapter<AuthorsListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AuthorListHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AuthorListHolder holder, final int position) {
         holder.text1.setText(authorList.get(position).getSurname());
         holder.text2.setText(authorList.get(position).getName());
         holder.text3.setText(authorList.get(position).getSecondName());
+
+        holder.layout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AuthorDetailsActivity.class);
+                intent.putExtra("name",authorList.get(position).getName());
+                intent.putExtra("surname",authorList.get(position).getSurname());
+                intent.putExtra("secondName",authorList.get(position).getSecondName());
+                intent.putExtra("id",authorList.get(position).getAuthorId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -44,12 +59,13 @@ public class AuthorsListAdapter extends RecyclerView.Adapter<AuthorsListAdapter.
     public static class AuthorListHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         TextView text1,text2,text3;
-
+        ConstraintLayout layout;
         public AuthorListHolder(View v) {
             super(v);
             text1= v.findViewById(R.id.author_row_text_view1);
             text2= v.findViewById(R.id.author_row_text_view2);
             text3 = v.findViewById(R.id.author_row_text_view3);
+            layout = v.findViewById(R.id.all_authors_row_layout);
         }
     }
 

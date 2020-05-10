@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wp"
-    tools:context=".controller.author.AddAuthorActivity">
+    tools:context=".controller.author.AuthorDetailsActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="370dp"
+        android:layout_height="620dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,60 +22,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/author_name"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/authorName"
+        <TextView
+            android:id="@+id/details_author_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/author_name"
-            android:ems="10"
-            android:hint="@string/author_name"
-            android:inputType="textPersonName"
             android:text="@string/empty_string"
             android:textColor="#FFFFFF"
-            android:textColorHighlight="#FFFFFF" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/author_secondName"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/authorSurname"
+        <TextView
+            android:id="@+id/details_author_secondname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/author_secondName"
-            android:ems="10"
-            android:hint="@string/author_secondName"
-            android:inputType="textPersonName"
-            android:text="@string/empty_string"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/author_surname"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/authorSecondName"
+        <TextView
+            android:id="@+id/details_author_surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/author_surname"
-            android:ems="10"
-            android:hint="@string/author_surname"
             android:inputType="textPersonName"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/updateAuthorButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onAddClick"
-            android:text="@string/add" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
