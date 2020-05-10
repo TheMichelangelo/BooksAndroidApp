@@ -66,7 +66,7 @@ public class BookService extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    private List<Book> getAllBooks() {
+    public List<Book> getAllBooks() {
         List<Book> itemsList = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase();

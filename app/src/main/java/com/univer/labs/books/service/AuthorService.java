@@ -130,4 +130,23 @@ public class AuthorService extends SQLiteOpenHelper {
         return itemsList;
     }
 
+    //custom querries
+    public Author getAuthorById(long authorId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ TABLE_NAME  +
+                " WHERE "+COL_1+"="+authorId, null);
+        Author author = new Author();
+        if (cursor.getCount() == 0)
+            return author;
+        while (cursor.moveToNext())
+        {
+            author.setAuthorId(cursor.getInt(0));
+            author.setName(cursor.getString(1));
+            author.setSurname(cursor.getString(2));
+            author.setSecondName(cursor.getString(3));
+        }
+        cursor.close();
+        return author;
+    }
+
 }

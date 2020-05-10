@@ -32,7 +32,7 @@ public class AllAuthorsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.allAuthorsView);
         // specify an adapter
         mAdapter = new AuthorsListAdapter(this, list);
-        context=this;
+        context = this;
         recyclerView.setAdapter(mAdapter);
         new ItemTouchHelper(itouchHelperCallBack).attachToRecyclerView(recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -46,22 +46,19 @@ public class AllAuthorsActivity extends AppCompatActivity {
 
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            if(ItemTouchHelper.LEFT ==direction)
-            {
+            if (ItemTouchHelper.LEFT == direction) {
                 Author authorToDelete = list.get(viewHolder.getLayoutPosition());
                 authorService.deleteAuthor(authorToDelete);
                 list.remove(viewHolder.getLayoutPosition());
                 mAdapter.notifyDataSetChanged();
 
-            }
-            else
-            {
+            } else {
                 Author authorToEdit = list.get(viewHolder.getLayoutPosition());
                 Intent intent = new Intent(context, EditAuthorActivity.class);
-                intent.putExtra("name",authorToEdit.getName());
-                intent.putExtra("surname",authorToEdit.getSurname());
-                intent.putExtra("secondName",authorToEdit.getSecondName());
-                intent.putExtra("id",authorToEdit.getAuthorId());
+                intent.putExtra("name", authorToEdit.getName());
+                intent.putExtra("surname", authorToEdit.getSurname());
+                intent.putExtra("secondName", authorToEdit.getSecondName());
+                intent.putExtra("id", authorToEdit.getAuthorId());
                 context.startActivity(intent);
             }
         }
