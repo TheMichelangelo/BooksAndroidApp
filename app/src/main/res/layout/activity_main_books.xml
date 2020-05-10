@@ -41,6 +41,7 @@
             android:id="@+id/find_duplicates_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onClickShowDooblicateBooksActivity"
             android:text="@string/find_duplicates" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
