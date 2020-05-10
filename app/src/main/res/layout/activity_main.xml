@@ -4,24 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".controller.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="32dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/authors"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickOpenAllAuthorsActivity"
-            android:text="@string/authors" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/authors"
+        android:layout_width="325dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="294dp"
+        android:onClick="onClickOpenAllAuthorsActivity"
+        android:text="@string/authors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lab3 books app!"
@@ -29,5 +27,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mainBooks"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/books"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

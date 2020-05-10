@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Books</string>
     <string name="authors">Authors</string>
+    <string name="books">Books</string>
     <string name="add_author">Add author</string>
     <string name="get_all_authors">View all authors</string>
     <string name="get_authors_without_books">Get authors without books</string>
@@ -9,33 +10,5 @@
     <string name="author_surname">Surname</string>
     <string name="add">Add</string>
     <string name="empty_string"></string>
-    <string-array name="languages">
-        <item>C++</item>
-        <item>Java</item>
-        <item>Kotlin</item>
-        <item>C++</item>
-        <item>Java</item>
-        <item>Kotlin</item>
-        <item>C++</item>
-        <item>Java</item>
-        <item>Kotlin</item>
-        <item>C++</item>
-        <item>Java</item>
-        <item>Kotlin</item>
-    </string-array>
 
-    <string-array name="description">
-        <item>desc1</item>
-        <item>desc2</item>
-        <item>desc3</item>
-        <item>desc1</item>
-        <item>desc2</item>
-        <item>desc3</item>
-        <item>desc1</item>
-        <item>desc2</item>
-        <item>desc3</item>
-        <item>desc1</item>
-        <item>desc2</item>
-        <item>desc3</item>
-    </string-array>
 </resources>

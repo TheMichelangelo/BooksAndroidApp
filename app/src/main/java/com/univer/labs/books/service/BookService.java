@@ -19,7 +19,7 @@ import java.util.List;
 
 public class BookService extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "books.db";
-    private static final String TABLE_NAME = "book";
+    public static final String TABLE_NAME = "book";
     private static final String COL_1 = "book_id";
     private static final String COL_2 = "book_name";
     private static final String COL_3 = "date_published";

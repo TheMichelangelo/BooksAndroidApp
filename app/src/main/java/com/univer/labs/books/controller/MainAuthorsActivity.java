@@ -1,10 +1,14 @@
-package com.univer.labs.books;
+package com.univer.labs.books.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.univer.labs.books.R;
+import com.univer.labs.books.controller.author.AddAuthorActivity;
+import com.univer.labs.books.controller.author.AllAuthorsActivity;
 
 public class MainAuthorsActivity extends AppCompatActivity {
 

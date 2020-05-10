@@ -1,4 +1,4 @@
-package com.univer.labs.books;
+package com.univer.labs.books.controller.author;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.univer.labs.books.R;
 import com.univer.labs.books.service.AuthorService;
 
 public class AddAuthorActivity extends AppCompatActivity {

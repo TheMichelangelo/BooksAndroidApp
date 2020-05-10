@@ -16,28 +16,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorService extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "books.db";
+    public static final String DATABASE_NAME = "books.db";
     private static final String TABLE_NAME = "authors";
     private static final String COL_1 = "author_id";
     private static final String COL_2 = "author_name";
     private static final String COL_3 = "author_surname";
     private static final String COL_4 = "author_secondname";
+    private BookService bookService;
 
     public AuthorService(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
+        bookService = new BookService(context);
         //SQLiteDatabase db = this.getWritableDatabase();
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " ("+COL_1+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COL_2+" varchar(20), "+COL_3+" varchar(20), "+COL_4+" varchar(20))");
+        /*db.execSQL("create table " + TABLE_NAME + " ("+COL_1+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_2+" varchar(20), "+COL_3+" varchar(20), "+COL_4+" varchar(20))");*/
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE if EXISTS "+TABLE_NAME);
-        onCreate(db);
+        /*db.execSQL("DROP TABLE if EXISTS "+TABLE_NAME);
+        onCreate(db);*/
     }
 
     public boolean insertAuthor(String name, String surname, String secondName) {
@@ -87,11 +89,32 @@ public class AuthorService extends SQLiteOpenHelper {
     }
 
     //custom querries
-    public List<Serializable> getAllAuthorsWithoutBooks() {
+    public List<Author> getAllAuthorsWithoutBooks() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM authors_table " +
                 "WHERE author_id NOT IN(SELECT DISTINCT author_id FROM books_table)", null);
-        List<Serializable> itemsList = new ArrayList<>();
+        List<Author> itemsList = new ArrayList<>();
+        if (cursor.getCount() == 0)
+            return itemsList;
+        while (cursor.moveToNext())
+        {
+            Author author = new Author();
+            author.setAuthorId(cursor.getInt(0));
+            author.setName(cursor.getString(1));
+            author.setSurname(cursor.getString(2));
+            author.setSecondName(cursor.getString(3));
+            itemsList.add(author);
+        }
+        cursor.close();
+        return itemsList;
+    }
+
+    //custom querries
+    public List<Author> getBooksByAuthors() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM authors_table " +
+                "WHERE author_id NOT IN(SELECT DISTINCT author_id FROM books_table)", null);
+        List<Author> itemsList = new ArrayList<>();
         if (cursor.getCount() == 0)
             return itemsList;
         while (cursor.moveToNext())

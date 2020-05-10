@@ -9,34 +9,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".controller.book.BooksDuplicateActivity"></activity>
+        <activity android:name=".controller.book.EditBookActivity" />
+        <activity android:name=".controller.author.EditAuthorActivity" />
+        <activity android:name=".controller.author.BooksByAuthorActivity" />
+        <activity android:name=".controller.author.AuthorWithoutBooksActivity" />
+        <activity android:name=".controller.book.AllBooksActivity" />
+        <activity android:name=".controller.book.AddBookActivity" />
+        <activity android:name=".controller.MainBooksActivity" />
         <activity
-            android:name=".AllAuthorsActivity"
-            android:parentActivityName=".MainAuthorsActivity">
+            android:name=".controller.author.AllAuthorsActivity"
+            android:parentActivityName=".controller.MainAuthorsActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainAuthorsActivity" />
+                android:value=".controller.MainAuthorsActivity" />
         </activity>
         <activity
-            android:name=".AddAuthorActivity"
-            android:parentActivityName=".MainAuthorsActivity">
+            android:name=".controller.author.AddAuthorActivity"
+            android:parentActivityName=".controller.MainAuthorsActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainAuthorsActivity" />
+                android:value=".controller.MainAuthorsActivity" />
         </activity>
         <activity
-            android:name=".MainAuthorsActivity"
-            android:parentActivityName=".MainActivity">
+            android:name=".controller.MainAuthorsActivity"
+            android:parentActivityName=".controller.MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".controller.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

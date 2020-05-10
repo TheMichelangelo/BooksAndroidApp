@@ -1,4 +1,4 @@
-package com.univer.labs.books;
+package com.univer.labs.books.controller.author;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.univer.labs.books.R;
 import com.univer.labs.books.model.Author;
 
 import java.util.List;

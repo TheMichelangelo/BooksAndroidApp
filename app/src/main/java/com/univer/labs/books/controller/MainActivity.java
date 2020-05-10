@@ -1,4 +1,4 @@
-package com.univer.labs.books;
+package com.univer.labs.books.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.univer.labs.books.model.Book;
+import com.univer.labs.books.R;
 import com.univer.labs.books.service.AuthorService;
 import com.univer.labs.books.service.BookService;
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickOpenAllAuthorsActivity(View v){
-        Intent intent = new Intent(this,MainAuthorsActivity.class);
+        Intent intent = new Intent(this, MainAuthorsActivity.class);
         startActivity(intent);
     }
 
