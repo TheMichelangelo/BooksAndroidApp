@@ -68,6 +68,16 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookLi
         }
     }
 
+    public void refreshData(List<Book> newBooks){
+
+        //Чистим коллекцию с данными
+        bookList.clear();
+        //наполняем измененными данными
+        bookList=newBooks;
+        //передергиваем адаптер
+        notifyDataSetChanged();
+    }
+
     BookListAdapter(Context contex, List<Book> list) {
         bookList = list;
         this.context = contex;

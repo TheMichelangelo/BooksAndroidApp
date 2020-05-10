@@ -12,6 +12,7 @@ import com.univer.labs.books.controller.author.AllAuthorsActivity;
 import com.univer.labs.books.controller.book.AddBookActivity;
 import com.univer.labs.books.controller.book.AllBooksActivity;
 import com.univer.labs.books.controller.book.BooksDuplicateActivity;
+import com.univer.labs.books.controller.book.BooksUnderPriceActivity;
 
 public class MainBooksActivity extends AppCompatActivity {
 
@@ -33,6 +34,11 @@ public class MainBooksActivity extends AppCompatActivity {
 
     public void onClickShowDooblicateBooksActivity(View v) {
         Intent intent = new Intent(this, BooksDuplicateActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickUnderPriceooksActivity(View v) {
+        Intent intent = new Intent(this, BooksUnderPriceActivity.class);
         startActivity(intent);
     }
 }
