@@ -49,6 +49,7 @@ public class BooksUnderPriceActivity extends AppCompatActivity {
         list = bookService.getAllBooksUnderPrice(price);
         mAdapter.refreshData(list);
     }
+
     private void showAlert(String message, String title) {
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
         builder1.setTitle(title);
