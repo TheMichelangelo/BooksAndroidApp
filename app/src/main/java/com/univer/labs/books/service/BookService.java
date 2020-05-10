@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.univer.labs.books.model.Book;
+import com.univer.labs.books.model.GroupedBooks;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -94,10 +95,24 @@ public class BookService extends SQLiteOpenHelper {
     }
 
     //custom querries
-    public Cursor getAllBooksByAuthors() {
+    public List<GroupedBooks> getAllBooksByAuthors() {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT author_id, COUNT(*), SUM(price), AVG(price) FROM "+ TABLE_NAME +
+        Cursor cursor = db.rawQuery("SELECT author_id, COUNT(*), SUM(price), AVG(price) FROM "+ TABLE_NAME +
                 " GROUP BY author_id having author_id!=0", null);
+        List<GroupedBooks> itemsList = new ArrayList<>();
+        if (cursor.getCount() == 0)
+            return itemsList;
+        while (cursor.moveToNext())
+        {
+            GroupedBooks stat = new GroupedBooks();
+            stat.setAuthorId(cursor.getInt(0));
+            stat.setCount(cursor.getInt(1));
+            stat.setMaxPrice(cursor.getDouble(2));
+            stat.setAvgPrice(cursor.getDouble(3));
+            itemsList.add(stat);
+        }
+        cursor.close();
+        return itemsList;
     }
 
     public List<Book> getAllBooksUnderPrice(double price) {

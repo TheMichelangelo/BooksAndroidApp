@@ -52,4 +52,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allAuthors" />
 
+    <Button
+        android:id="@+id/bookByAuthors"
+        android:layout_width="276dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
+        android:onClick="onClickBooksByAuthorsActivity"
+        android:text="Get books by authors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/withoutBooks" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

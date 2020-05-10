@@ -10,6 +10,7 @@ import com.univer.labs.books.R;
 import com.univer.labs.books.controller.author.AddAuthorActivity;
 import com.univer.labs.books.controller.author.AllAuthorsActivity;
 import com.univer.labs.books.controller.author.AuthorWithoutBooksActivity;
+import com.univer.labs.books.controller.author.BooksByAuthorActivity;
 
 public class MainAuthorsActivity extends AppCompatActivity {
 
@@ -31,6 +32,11 @@ public class MainAuthorsActivity extends AppCompatActivity {
 
     public void onClickShowAuthorsWithoutBooksActivity(View v){
         Intent intent = new Intent(this, AuthorWithoutBooksActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickBooksByAuthorsActivity(View v){
+        Intent intent = new Intent(this, BooksByAuthorActivity.class);
         startActivity(intent);
     }
 

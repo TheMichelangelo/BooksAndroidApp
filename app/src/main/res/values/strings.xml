@@ -27,6 +27,6 @@
     <string name="find_action">Find</string>
     <string name="books_under_price_list">Books under price</string>
     <string name="books_count_label">Books count</string>
-    <string name="books_max_price">Max price</string>
+    <string name="books_max_price">Summary price</string>
     <string name="books_avg_price">Avarage price</string>
 </resources>
