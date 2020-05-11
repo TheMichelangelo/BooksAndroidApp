@@ -11,6 +11,7 @@ import com.univer.labs.books.controller.author.AddAuthorActivity;
 import com.univer.labs.books.controller.author.AllAuthorsActivity;
 import com.univer.labs.books.controller.author.AuthorWithoutBooksActivity;
 import com.univer.labs.books.controller.author.BooksByAuthorActivity;
+import com.univer.labs.books.controller.author.BooksByAuthorsPieChartActivity;
 
 public class MainAuthorsActivity extends AppCompatActivity {
 
@@ -37,6 +38,11 @@ public class MainAuthorsActivity extends AppCompatActivity {
 
     public void onClickBooksByAuthorsActivity(View v){
         Intent intent = new Intent(this, BooksByAuthorActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickBooksByAuthorsChartActivity(View v){
+        Intent intent = new Intent(this, BooksByAuthorsPieChartActivity.class);
         startActivity(intent);
     }
 

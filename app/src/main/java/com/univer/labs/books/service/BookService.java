@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.univer.labs.books.model.Author;
 import com.univer.labs.books.model.Book;
 import com.univer.labs.books.model.GroupedBooks;
 
@@ -113,6 +114,25 @@ public class BookService extends SQLiteOpenHelper {
         }
         cursor.close();
         return itemsList;
+    }
+
+    public GroupedBooks getAllBooksByAuthor(Author author)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT author_id, COUNT(*), SUM(price), AVG(price) FROM "+ TABLE_NAME +
+                " GROUP BY author_id having author_id="+author.getAuthorId(), null);
+        GroupedBooks info = new GroupedBooks();
+        if (cursor.getCount() == 0)
+            return info;
+        if (cursor.moveToNext())
+        {
+            info.setAuthorId(cursor.getInt(0));
+            info.setCount(cursor.getInt(1));
+            info.setMaxPrice(cursor.getDouble(2));
+            info.setAvgPrice(cursor.getDouble(3));
+        }
+        cursor.close();
+        return info;
     }
 
     public List<Book> getAllBooksUnderPrice(double price) {

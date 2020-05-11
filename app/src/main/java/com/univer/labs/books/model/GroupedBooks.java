@@ -7,6 +7,9 @@ public class GroupedBooks {
     long authorId;
 
     public GroupedBooks() {
+        count=0;
+        maxPrice=0;
+        avgPrice=0;
     }
 
     public GroupedBooks(double maxPrice, double avgPrice, int count, long authorId) {
