@@ -126,10 +126,6 @@ public class EditBookActivity extends AppCompatActivity {
         boolean result = bookService.updateBook(book);
         if (result) {
             showAlert("Book updated", "Success");
-            bookNameEdit.setText("");
-            datePublishedEdit.setText("11/22/1963");
-            priceEdit.setText("");
-            pagesCountEdit.setText("");
         }
     }
 

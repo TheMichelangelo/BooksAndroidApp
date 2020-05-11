@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/wp_books"
     tools:context=".controller.MainBooksActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="200dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,5 +45,13 @@
             android:layout_height="wrap_content"
             android:onClick="onClickShowDooblicateBooksActivity"
             android:text="@string/find_duplicates" />
+
+        <Button
+            android:id="@+id/chart_books_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickBooksByYearChartActivity"
+            android:text="Books by year chart"
+            tools:text="Books by year chart" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

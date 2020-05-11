@@ -116,6 +116,25 @@ public class BookService extends SQLiteOpenHelper {
         return itemsList;
     }
 
+    public List<GroupedBooks> getAllBooksByDate() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT COUNT(*), AVG(price),"+COL_3+" FROM "+ TABLE_NAME +
+                " GROUP BY "+COL_3, null);
+        List<GroupedBooks> itemsList = new ArrayList<>();
+        if (cursor.getCount() == 0)
+            return itemsList;
+        while (cursor.moveToNext())
+        {
+            GroupedBooks stat = new GroupedBooks();
+            stat.setCount(cursor.getInt(0));
+            stat.setAvgPrice(cursor.getDouble(1));
+            stat.setDate(cursor.getString(2));
+            itemsList.add(stat);
+        }
+        cursor.close();
+        return itemsList;
+    }
+
     public GroupedBooks getAllBooksByAuthor(Author author)
     {
         SQLiteDatabase db = this.getWritableDatabase();

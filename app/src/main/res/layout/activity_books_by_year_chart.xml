@@ -9,8 +9,8 @@ android:paddingRight="16dp"
 android:paddingTop="16dp"
 tools:context=".controller.book.BooksByYearChartActivity">
 
-<com.github.mikephil.charting.charts.BarChart
+<com.github.mikephil.charting.charts.HorizontalBarChart
     android:layout_width="match_parent"
-    android:layout_height="400dp"
-    android:id="@+id/bargraph"></com.github.mikephil.charting.charts.BarChart>
+    android:layout_height="match_parent"
+    android:id="@+id/bargraph"></com.github.mikephil.charting.charts.HorizontalBarChart>
 </RelativeLayout>

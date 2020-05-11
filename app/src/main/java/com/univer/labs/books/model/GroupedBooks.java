@@ -5,11 +5,13 @@ public class GroupedBooks {
     double avgPrice;
     int count;
     long authorId;
+    String date;
 
     public GroupedBooks() {
         count=0;
         maxPrice=0;
         avgPrice=0;
+        date="";
     }
 
     public GroupedBooks(double maxPrice, double avgPrice, int count, long authorId) {
@@ -17,6 +19,14 @@ public class GroupedBooks {
         this.avgPrice = avgPrice;
         this.count = count;
         this.authorId = authorId;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public double getMaxPrice() {
